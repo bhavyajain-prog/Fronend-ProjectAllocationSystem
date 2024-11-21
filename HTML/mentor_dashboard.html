@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mentor Dashboard</title>
+    <link rel="stylesheet" href="../CSS/mentor_dashboard.css" />
+  </head>
+  <body>
+    <!-- Logo Section -->
+    <div class="status">
+      <img src="../Images/logo.jpg" alt="SKIT Logo" class="logo" />
+    </div>
+
+    <!-- Page Container -->
+    <div class="form-container">
+      <h1>Mentor Dashboard</h1>
+
+      <!-- Update status button is used to direct mentor to form3 page -->
+
+      <!-- Team List -->
+      <div id="team-list">
+        <!-- Team 1 -->
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <span><strong>Project Title:</strong> AI Chatbot</span>
+          </div>
+          <div class="team-details">
+            <p><strong>Student Name:</strong> Alice Johnson</p>
+            <p><strong>Role:</strong> Team Leader</p>
+            <p><strong>Work Progress:</strong> 80%</p>
+            <p><strong>Contact:</strong> alice.johnson@example.com</p>
+            <button class="update-btn">Update Status</button>
+          </div>
+        </div>
+
+        <!-- Team 2 -->
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <span><strong>Project Title:</strong> E-Commerce Website</span>
+          </div>
+          <div class="team-details">
+            <p><strong>Student Name:</strong> John Doe</p>
+            <p><strong>Role:</strong> Developer</p>
+            <p><strong>Work Progress:</strong> 65%</p>
+            <p><strong>Contact:</strong> john.doe@example.com</p>
+            <button class="update-btn">Update Status</button>
+          </div>
+        </div>
+
+        <!-- Team 3 -->
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <span><strong>Project Title:</strong> Weather Forecast App</span>
+          </div>
+          <div class="team-details">
+            <p><strong>Student Name:</strong> Emily Davis</p>
+            <p><strong>Role:</strong> Designer</p>
+            <p><strong>Work Progress:</strong> 50%</p>
+            <p><strong>Contact:</strong> emily.davis@example.com</p>
+            <button class="update-btn">Update Status</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function toggleDetails(teamRow) {
+        const details = teamRow.querySelector(".team-details");
+
+        if (details.style.maxHeight && details.style.maxHeight !== "0px") {
+          details.style.maxHeight = "0";
+          details.style.opacity = "0";
+        } else {
+          details.style.maxHeight = details.scrollHeight + "px";
+          details.style.opacity = "1";
+        }
+      }
+    </script>
+  </body>
+</html>

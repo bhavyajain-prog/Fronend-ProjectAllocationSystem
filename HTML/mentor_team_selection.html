@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Selection</title>
+    <link rel="stylesheet" href="../CSS/mentor_team_selection.css" />
+  </head>
+  <body>
+    <div class="status">
+      <img src="../Images/logo.jpg" alt="SKIT Logo" class="logo" />
+    </div>
+
+    <div class="form-container">
+      <h1>Team Selection</h1>
+
+      <!-- Team List Container -->
+      <div id="team-list">
+        <!-- Dummy Team Rows -->
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <span><strong>Team Leader:</strong> Alice Johnson</span>
+            <span><strong>Project Title:</strong> AI Chatbot</span>
+            <div>
+              <button class="approve-btn">Approve</button>
+              <button class="reject-btn">Reject</button>
+            </div>
+          </div>
+          <div class="team-details">
+            <p><strong>Team Members:</strong> Bob Smith, Charlie Brown</p>
+            <p><strong>Technology:</strong> Python, TensorFlow</p>
+            <p>
+              <strong>Description:</strong> A chatbot powered by AI to assist
+              users with common queries.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <span><strong>Team Leader:</strong> John Doe</span>
+            <span><strong>Project Title:</strong> E-Commerce Website</span>
+            <div>
+              <button class="approve-btn">Approve</button>
+              <button class="reject-btn">Reject</button>
+            </div>
+          </div>
+          <div class="team-details">
+            <p><strong>Team Members:</strong> Jane Smith, Peter Parker</p>
+            <p><strong>Technology:</strong> React, Node.js, MongoDB</p>
+            <p>
+              <strong>Description:</strong> An e-commerce platform for small
+              businesses with secure payment integration.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <span><strong>Team Leader:</strong> Emily Davis</span>
+            <span><strong>Project Title:</strong> Weather Forecast App</span>
+            <div>
+              <button class="approve-btn">Approve</button>
+              <button class="reject-btn">Reject</button>
+            </div>
+          </div>
+          <div class="team-details">
+            <p><strong>Team Members:</strong> Chris Evans, Mark Ruffalo</p>
+            <p><strong>Technology:</strong> JavaScript, OpenWeather API</p>
+            <p>
+              <strong>Description:</strong> A web application that provides
+              real-time weather updates and forecasts.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <span><strong>Team Leader:</strong> Michael Scott</span>
+            <span
+              ><strong>Project Title:</strong> Inventory Management System</span
+            >
+            <div>
+              <button class="approve-btn">Approve</button>
+              <button class="reject-btn">Reject</button>
+            </div>
+          </div>
+          <div class="team-details">
+            <p><strong>Team Members:</strong> Dwight Schrute, Jim Halpert</p>
+            <p><strong>Technology:</strong> Java, MySQL</p>
+            <p>
+              <strong>Description:</strong> A desktop application to manage
+              inventory and generate sales reports.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <span><strong>Team Leader:</strong> Sarah Connor</span>
+            <span><strong>Project Title:</strong> Smart Home Automation</span>
+            <div>
+              <button class="approve-btn">Approve</button>
+              <button class="reject-btn">Reject</button>
+            </div>
+          </div>
+          <div class="team-details">
+            <p><strong>Team Members:</strong> John Connor, Kyle Reese</p>
+            <p><strong>Technology:</strong> Arduino, IoT</p>
+            <p>
+              <strong>Description:</strong> A system to automate home appliances
+              using sensors and a mobile app.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function toggleDetails(teamRow) {
+        const details = teamRow.querySelector(".team-details");
+
+        if (details.classList.contains("active")) {
+          // Collapse
+          details.style.maxHeight = null; // Remove max-height to allow collapse
+          details.classList.remove("active");
+        } else {
+          // Expand
+          details.style.maxHeight = details.scrollHeight + "px"; // Set max-height dynamically
+          details.classList.add("active");
+        }
+      }
+    </script>
+  </body>
+</html>

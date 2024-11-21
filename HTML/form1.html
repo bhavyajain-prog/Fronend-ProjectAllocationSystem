@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Major / Minor Project Abstract Form</title>
+    <link rel="stylesheet" href="../CSS/form1.css" />
+  </head>
+  <body>
+    <div class="status">
+      <img src="../Images/logo.jpg" alt="SKIT Logo" class="logo" />
+    </div>
+
+    <div class="form-container">
+      <h1>Project Abstract Form</h1>
+      <form action="/submit-form" method="post">
+        <div>
+          <label for="lab-coordinator">Name of Lab Coordinator:</label>
+          <input
+            type="text"
+            id="lab-coordinator"
+            name="lab-coordinator"
+            required
+          />
+
+          <label for="project-id">Project ID:</label>
+          <input type="text" id="project-id" name="project-id" required />
+
+          <label for="project-title">Title of Project:</label>
+          <input type="text" id="project-title" name="project-title" required />
+        </div>
+
+        <div>
+          <label>Project Track:</label>
+          <div class="checkbox-group">
+            <div class="checkbox-item">
+              <span>R&D (Innovation)</span>
+              <input
+                type="checkbox"
+                name="project-track"
+                value="R&D"
+                style="float: right"
+              />
+            </div>
+            <div class="checkbox-item">
+              <span>Consultancy (Industry)</span>
+              <input
+                type="checkbox"
+                name="project-track"
+                value="Consultancy"
+                style="float: right"
+              />
+            </div>
+            <div class="checkbox-item">
+              <span>Startup (Self-Business)</span>
+              <input
+                type="checkbox"
+                name="project-track"
+                value="Startup"
+                style="float: right"
+              />
+            </div>
+            <div class="checkbox-item">
+              <span>Project Pool (IBM/Infosys)</span>
+              <input
+                type="checkbox"
+                name="project-track"
+                value="Project Pool"
+                style="float: right"
+              />
+            </div>
+            <div class="checkbox-item">
+              <span>Hardware/Embedded</span>
+              <input
+                type="checkbox"
+                name="project-track"
+                value="Hardware"
+                style="float: right"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label for="introduction">Brief Introduction of Project:</label>
+          <textarea
+            id="introduction"
+            name="introduction"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div>
+          <label>Tools / Technologies to be used:</label>
+          <div class="table-container">
+            <table id="tools-table" border="1" width="100%">
+              <tr>
+                <th>Name of Tool / Technology</th>
+                <th>Version</th>
+                <th>Type</th>
+                <th>Purpose of Use</th>
+                <th>Action</th>
+              </tr>
+              <tr>
+                <td><input type="text" name="tool1-name" required /></td>
+                <td><input type="text" name="tool1-version" required /></td>
+                <td><input type="text" name="tool1-type" required /></td>
+                <td><input type="text" name="tool1-purpose" required /></td>
+                <td>
+                  <button type="button" onclick="deleteRow(this)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <button type="button" id="add-tool-btn">Add Technology</button>
+        </div>
+
+        <div>
+          <label>Proposed Project Modules:</label>
+          <div class="table-container">
+            <table id="modules-table" border="1" width="100%">
+              <tr>
+                <th>Module Name</th>
+                <th>Functionality</th>
+                <th>Action</th>
+              </tr>
+              <tr>
+                <td><input type="text" name="module1-name" required /></td>
+                <td><input type="text" name="module1-function" required /></td>
+                <td>
+                  <button type="button" onclick="deleteRow(this)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <button type="button" id="add-module-btn">Add Module</button>
+        </div>
+
+        <div>
+          <label>Team Member Details:</label>
+          <div class="table-container">
+            <table id="team-members-table" border="1" width="100%">
+              <tr>
+                <th>Name</th>
+                <th>Class & Group</th>
+                <th>Mobile No.</th>
+                <th>Expertise Area</th>
+                <th>Role in Project</th>
+                <th>Action</th>
+              </tr>
+              <tr>
+                <td><input type="text" name="member1-name" required /></td>
+                <td><input type="text" name="member1-class" required /></td>
+                <td><input type="text" name="member1-mobile" required /></td>
+                <td><input type="text" name="member1-expertise" required /></td>
+                <td><input type="text" name="member1-role" required /></td>
+                <td>
+                  <button type="button" onclick="deleteRow(this)">
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </div>
+          <button type="button" id="add-row-btn">Add Member</button>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      // Function to add a new row to the Tools/Technologies table
+      document
+        .getElementById("add-tool-btn")
+        .addEventListener("click", function () {
+          const table = document.getElementById("tools-table");
+          const newRow = table.insertRow(table.rows.length); // Insert at the end of the table
+          newRow.innerHTML = `
+          <td><input type="text" name="tool${table.rows.length}-name" required /></td>
+          <td><input type="text" name="tool${table.rows.length}-version" required /></td>
+          <td><input type="text" name="tool${table.rows.length}-type" required /></td>
+          <td><input type="text" name="tool${table.rows.length}-purpose" required /></td>
+          <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+        `;
+        });
+
+      // Function to add a new row to the Project Modules table
+      document
+        .getElementById("add-module-btn")
+        .addEventListener("click", function () {
+          const table = document.getElementById("modules-table");
+          const newRow = table.insertRow(table.rows.length); // Insert at the end of the table
+          newRow.innerHTML = `
+          <td><input type="text" name="module${table.rows.length}-name" required /></td>
+          <td><input type="text" name="module${table.rows.length}-function" required /></td>
+          <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+        `;
+        });
+
+      // Function to add a new row to the Team Members table
+      document
+        .getElementById("add-row-btn")
+        .addEventListener("click", function () {
+          const table = document.getElementById("team-members-table");
+          const newRow = table.insertRow(table.rows.length); // Insert at the end of the table
+          newRow.innerHTML = `
+          <td><input type="text" name="member${table.rows.length}-name" required /></td>
+          <td><input type="text" name="member${table.rows.length}-class" required /></td>
+          <td><input type="text" name="member${table.rows.length}-mobile" required /></td>
+          <td><input type="text" name="member${table.rows.length}-expertise" required /></td>
+          <td><input type="text" name="member${table.rows.length}-role" required /></td>
+          <td><button type="button" onclick="deleteRow(this)">Delete</button></td>
+        `;
+        });
+
+      // Function to delete a row from any table
+      function deleteRow(button) {
+        const row = button.parentNode.parentNode; // Get the row of the clicked button
+        row.remove();
+      }
+    </script>
+  </body>
+</html>

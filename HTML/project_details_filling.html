@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Submission Form</title>
+    <!-- Include select2 CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/project_details_filling.css" />
+  </head>
+  <body>
+    <!-- Logo Section -->
+    <div class="status">
+      <img src="../Images/logo.jpg" alt="SKIT Logo" class="logo" />
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+      <h1>Project Submission Form</h1>
+      <!-- Project 1 Details -->
+      <div class="form-group">
+        <label for="project1-title">Project-1 Title:</label>
+        <input
+          type="text"
+          id="project1-title"
+          placeholder="Enter Project-1 Title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="project1-tech">Project-1 Technology:</label>
+        <input
+          type="text"
+          id="project1-tech"
+          placeholder="Enter Technology Used"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="project1-desc">Project-1 Description:</label>
+        <textarea
+          id="project1-desc"
+          rows="3"
+          placeholder="Enter Description"
+        ></textarea>
+      </div>
+
+      <!-- Project 2 Details -->
+      <div class="form-group">
+        <label for="project2-title">Project-2 Title:</label>
+        <input
+          type="text"
+          id="project2-title"
+          placeholder="Enter Project-2 Title"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="project2-tech">Project-2 Technology:</label>
+        <input
+          type="text"
+          id="project2-tech"
+          placeholder="Enter Technology Used"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="project2-desc">Project-2 Description:</label>
+        <textarea
+          id="project2-desc"
+          rows="3"
+          placeholder="Enter Description"
+        ></textarea>
+      </div>
+
+      <!-- Mentor Selection -->
+      <div class="form-group">
+        <h3>Choose Mentor</h3>
+        <div class="choice-list">
+          <div class="mentor-choice">
+            <label for="mentor-choice1">Choice 1:</label>
+            <select id="mentor-choice1" class="searchable-dropdown">
+              <option value="mentor1">Mentor 1</option>
+              <option value="mentor2">Mentor 2</option>
+              <option value="mentor3">Mentor 3</option>
+              <option value="mentor4">Mentor 4</option>
+              <option value="mentor5">Mentor 5</option>
+            </select>
+          </div>
+          <div class="mentor-choice">
+            <label for="mentor-choice2">Choice 2:</label>
+            <select id="mentor-choice2" class="searchable-dropdown">
+              <option value="mentor1">Mentor 1</option>
+              <option value="mentor2">Mentor 2</option>
+              <option value="mentor3">Mentor 3</option>
+              <option value="mentor4">Mentor 4</option>
+              <option value="mentor5">Mentor 5</option>
+            </select>
+          </div>
+          <div class="mentor-choice">
+            <label for="mentor-choice3">Choice 3:</label>
+            <select id="mentor-choice3" class="searchable-dropdown">
+              <option value="mentor1">Mentor 1</option>
+              <option value="mentor2">Mentor 2</option>
+              <option value="mentor3">Mentor 3</option>
+              <option value="mentor4">Mentor 4</option>
+              <option value="mentor5">Mentor 5</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button class="submit-btn">Submit</button>
+    </div>
+
+    <!-- Include jQuery and select2.js -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+
+    <!-- Initialize select2 -->
+    <script>
+      $(document).ready(function () {
+        $(".searchable-dropdown").select2({
+          placeholder: "Select a mentor",
+          allowClear: true,
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Weekly Status Matrix</title>
+    <link rel="stylesheet" href="../CSS/form3.css" />
+  </head>
+  <body>
+    <div class="status">
+      <img src="../Images/logo.jpg" alt="SKIT Logo" class="logo" />
+    </div>
+    <div class="form-container">
+      <h1>Project Weekly Status Matrix</h1>
+
+      <div class="form-group">
+        <label for="student-name">Name of Student - 1:</label>
+        <input type="text" id="student-name" placeholder="Enter Student Name" />
+      </div>
+
+      <div class="form-group">
+        <label for="project-name">Name of Project:</label>
+        <input type="text" id="project-name" placeholder="Enter Project Name" />
+      </div>
+
+      <div class="form-group">
+        <label>Other Team Members:</label>
+        <input type="text" placeholder="Team Member 2" />
+        <input type="text" placeholder="Team Member 3" />
+        <input type="text" placeholder="Team Member 4" />
+      </div>
+
+      <div class="table-container">
+        <table id="status-table">
+          <thead>
+            <tr>
+              <th>Week (To-From)</th>
+              <th>Working on Module</th>
+              <th>Progress Achieved</th>
+              <th>Comments & Signature of Mentor</th>
+              <th>Marks (out of 10)</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="btns">
+        <button id="add-row-btn" class="add-row-btn">Add New Row</button>
+      </div>
+
+      <div class="summary-section">
+        <h3>Summary</h3>
+        <br />
+        <div class="form-group">
+          <label for="total-weeks">Total Weeks:</label>
+          <input type="text" id="total-weeks" placeholder="Enter Total Weeks" />
+        </div>
+        <div class="form-group">
+          <label for="module-completed">Module Completed (Y/N):</label>
+          <input type="text" id="module-completed" placeholder="Y or N" />
+        </div>
+        <div class="form-group">
+          <label for="overall-progress"
+            >Overall Progress (Poor/Avg/Good):</label
+          >
+          <input
+            type="text"
+            id="overall-progress"
+            placeholder="Enter Progress"
+          />
+        </div>
+        <div class="form-group">
+          <label for="overall-comment">Overall Comment (Poor/Avg/Good):</label>
+          <input type="text" id="overall-comment" placeholder="Enter Comment" />
+        </div>
+        <div class="form-group">
+          <label for="percentage-marks"
+            >Percentage Marks Estimate (By Mentor):</label
+          >
+          <input
+            type="text"
+            id="percentage-marks"
+            placeholder="Enter Percentage"
+          />
+        </div>
+      </div>
+
+      <div class="mentor-remarks">
+        <label for="mentor-remarks">Mentor's Remarks:</label>
+        <textarea
+          id="mentor-remarks"
+          rows="4"
+          placeholder="Enter Remarks"
+        ></textarea>
+      </div>
+
+      <button class="submit-btn">Submit</button>
+    </div>
+
+    <script>
+      // Function to add a new row to the table
+      function addRow() {
+        const tableBody = document.querySelector("#status-table tbody");
+        const newRow = document.createElement("tr");
+
+        newRow.innerHTML = `
+          <td><input type="text" placeholder="Week (To-From)" /></td>
+          <td><input type="text" placeholder="Working on Module" /></td>
+          <td><input type="text" placeholder="Progress Achieved" /></td>
+          <td><input type="text" placeholder="Comments & Signature" /></td>
+          <td><input type="text" placeholder="Marks (out of 10)" /></td>
+          <td><button class="delete-row-btn">Delete</button></td>
+        `;
+
+        // Add functionality to the delete button
+        newRow
+          .querySelector(".delete-row-btn")
+          .addEventListener("click", function () {
+            newRow.remove();
+          });
+
+        tableBody.appendChild(newRow);
+      }
+
+      // Attach event listener to Add Row button
+      document.getElementById("add-row-btn").addEventListener("click", addRow);
+    </script>
+  </body>
+</html>

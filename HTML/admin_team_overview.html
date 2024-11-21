@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Team Overview</title>
+    <link rel="stylesheet" href="../CSS/admin_team_overview.css" />
+  </head>
+  <body>
+    <!-- Logo Section -->
+    <div class="status">
+      <img src="../Images/logo.jpg" alt="SKIT Logo" class="logo" />
+    </div>
+
+    <!-- Team Overview Section -->
+    <div class="form-container">
+      <h1>Admin Team Overview</h1>
+      <p class="description">
+        View detailed information for all teams and their members below.
+      </p>
+
+      <!-- Teams List -->
+      <div id="teams-list">
+        <!-- Example Team -->
+        <div class="team">
+          <div class="team-header" onclick="toggleDetails(this)">
+            <span><strong>Project Title:</strong> AI Chatbot</span>
+            <span><strong>Technology:</strong> Python, TensorFlow</span>
+            <span><strong>Mentor:</strong> Dr. John Smith</span>
+          </div>
+          <div class="team-details">
+            <h3>Team Members</h3>
+            <ul>
+              <li>
+                <strong>Alice Johnson (L)</strong> - RTU Roll No: 12345678 -
+                Role: Developer - Group: A1
+              </li>
+              <li>
+                Bob Smith - RTU Roll No: 87654321 - Role: Tester - Group: A1
+              </li>
+              <li>
+                Charlie Brown - RTU Roll No: 56781234 - Role: Designer - Group:
+                A1
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Another Example Team -->
+        <div class="team">
+          <div class="team-header" onclick="toggleDetails(this)">
+            <span><strong>Project Title:</strong> E-Commerce Website</span>
+            <span><strong>Technology:</strong> React, Node.js</span>
+            <span><strong>Mentor:</strong> Prof. Jane Doe</span>
+          </div>
+          <div class="team-details">
+            <h3>Team Members</h3>
+            <ul>
+              <li>
+                <strong>John Doe (L)</strong> - RTU Roll No: 22334455 - Role:
+                Frontend - Group: B2
+              </li>
+              <li>
+                Jane Smith - RTU Roll No: 33445566 - Role: Backend - Group: B2
+              </li>
+              <li>
+                Peter Parker - RTU Roll No: 55667788 - Role: UI/UX - Group: B2
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Function to toggle dropdown details
+      function toggleDetails(element) {
+        const details = element.nextElementSibling;
+        const allDetails = document.querySelectorAll(".team-details");
+
+        allDetails.forEach((detail) => {
+          if (detail !== details) {
+            detail.style.maxHeight = null;
+            detail.style.opacity = "0";
+          }
+        });
+
+        if (details.style.maxHeight) {
+          details.style.maxHeight = null;
+          details.style.opacity = "0";
+        } else {
+          details.style.maxHeight = details.scrollHeight + "px";
+          details.style.opacity = "1";
+        }
+      }
+    </script>
+  </body>
+</html>

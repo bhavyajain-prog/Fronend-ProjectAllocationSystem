@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Upload Section</title>
+    <link rel="stylesheet" href="../CSS/admin_upload.css" />
+  </head>
+  <body>
+    <!-- Logo Section -->
+    <div class="status">
+      <img src="../Images/logo.jpg" alt="SKIT Logo" class="logo" />
+    </div>
+
+    <!-- Upload Section -->
+    <div class="form-container">
+      <h1>Admin Upload Section</h1>
+      <p class="description">
+        Upload the details of students and mentors in the respective sections
+        below. Supported formats: <strong>.csv</strong>
+      </p>
+
+      <!-- Upload Form -->
+      <form class="upload-form">
+        <!-- Upload for Students -->
+        <div class="upload-section">
+          <label for="students-file">Upload Student Details</label>
+          <input
+            type="file"
+            id="students-file"
+            accept=".csv"
+            class="upload-input"
+          />
+          <button type="button" class="upload-btn">Upload</button>
+        </div>
+
+        <!-- Upload for Mentors -->
+        <div class="upload-section">
+          <label for="mentors-file">Upload Mentor Details</label>
+          <input
+            type="file"
+            id="mentors-file"
+            accept=".csv"
+            class="upload-input"
+          />
+          <button type="button" class="upload-btn">Upload</button>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document.querySelectorAll(".upload-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          alert("File uploaded successfully!");
+        });
+      });
+    </script>
+  </body>
+</html>

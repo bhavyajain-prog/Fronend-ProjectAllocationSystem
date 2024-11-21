@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Search and Reorder Table</title>
+    <link rel="stylesheet" href="../CSS/mentor_status_admin.css" />
+  </head>
+  <body>
+    <div class="head">
+      <div class="header">
+        <img src="../Images/logo.jpg" alt="logo" class="logo" />
+        <h2>Mentor Status</h2>
+      </div>
+
+      <div class="container">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search"
+          oninput="searchData()"
+        />
+        <div class="table-container">
+          <table id="resultsTable" class="search-table">
+            <thead>
+              <tr>
+                <th>S.No.</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Designation</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody">
+              <!-- Table rows will be inserted here by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Link to external JavaScript file -->
+    <script>
+      // Sample data with S.No., Name, Department, and Designation
+      const employees = [
+        { sNo: 1, name: "Alice", department: "HR", designation: "Manager" },
+        { sNo: 2, name: "Bob", department: "Finance", designation: "Analyst" },
+        { sNo: 3, name: "Charlie", department: "IT", designation: "Developer" },
+        {
+          sNo: 4,
+          name: "David",
+          department: "Sales",
+          designation: "Executive",
+        },
+        {
+          sNo: 5,
+          name: "Eva",
+          department: "Marketing",
+          designation: "Specialist",
+        },
+        { sNo: 6, name: "Frank", department: "IT", designation: "Support" },
+        {
+          sNo: 7,
+          name: "Grace",
+          department: "Finance",
+          designation: "Accountant",
+        },
+        { sNo: 8, name: "Hannah", department: "Sales", designation: "Manager" },
+        { sNo: 9, name: "Ivan", department: "HR", designation: "Recruiter" },
+        {
+          sNo: 10,
+          name: "Julia",
+          department: "Marketing",
+          designation: "Coordinator",
+        },
+      ];
+
+      // Function to display the table rows
+      function displayTable(employeeList) {
+        const resultsBody = document.getElementById("resultsBody");
+        resultsBody.innerHTML = ""; // Clear previous results
+        employeeList.forEach((employee) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+        <td>${employee.sNo}</td>
+        <td>${employee.name}</td>
+        <td>${employee.department}</td>
+        <td>${employee.designation}</td>
+    `;
+          resultsBody.appendChild(row);
+        });
+      }
+
+      // Initial display of all employees
+      displayTable(employees);
+
+      // Function to search across Name, Department, or Designation fields
+      function searchData() {
+        const query = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+
+        // Filter employees based on any matching field (Name, Department, or Designation)
+        const filteredEmployees = employees.filter(
+          (employee) =>
+            employee.name.toLowerCase().includes(query) ||
+            employee.department.toLowerCase().includes(query) ||
+            employee.designation.toLowerCase().includes(query)
+        );
+
+        // Display the filtered and reordered employees
+        displayTable(filteredEmployees);
+      }
+    </script>
+  </body>
+</html>
