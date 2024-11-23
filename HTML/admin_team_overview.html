@@ -22,14 +22,14 @@
       <!-- Teams List -->
       <div id="teams-list">
         <!-- Example Team -->
-        <div class="team">
-          <div class="team-header" onclick="toggleDetails(this)">
-            <span><strong>Project Title:</strong> AI Chatbot</span>
-            <span><strong>Technology:</strong> Python, TensorFlow</span>
-            <span><strong>Mentor:</strong> Dr. John Smith</span>
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <h3>AI Chatbot</h3>
+            <p><strong>Technology:</strong> Python, TensorFlow</p>
+            <p><strong>Mentor:</strong> Dr. John Smith</p>
           </div>
           <div class="team-details">
-            <h3>Team Members</h3>
+            <h4>Team Members</h4>
             <ul>
               <li>
                 <strong>Alice Johnson (L)</strong> - RTU Roll No: 12345678 -
@@ -47,14 +47,14 @@
         </div>
 
         <!-- Another Example Team -->
-        <div class="team">
-          <div class="team-header" onclick="toggleDetails(this)">
-            <span><strong>Project Title:</strong> E-Commerce Website</span>
-            <span><strong>Technology:</strong> React, Node.js</span>
-            <span><strong>Mentor:</strong> Prof. Jane Doe</span>
+        <div class="team-row" onclick="toggleDetails(this)">
+          <div class="team-info">
+            <h3>E-Commerce Website</h3>
+            <p><strong>Technology:</strong> React, Node.js</p>
+            <p><strong>Mentor:</strong> Prof. Jane Doe</p>
           </div>
           <div class="team-details">
-            <h3>Team Members</h3>
+            <h4>Team Members</h4>
             <ul>
               <li>
                 <strong>John Doe (L)</strong> - RTU Roll No: 22334455 - Role:
@@ -73,20 +73,11 @@
     </div>
 
     <script>
-      // Function to toggle dropdown details
-      function toggleDetails(element) {
-        const details = element.nextElementSibling;
-        const allDetails = document.querySelectorAll(".team-details");
+      function toggleDetails(teamRow) {
+        const details = teamRow.querySelector(".team-details");
 
-        allDetails.forEach((detail) => {
-          if (detail !== details) {
-            detail.style.maxHeight = null;
-            detail.style.opacity = "0";
-          }
-        });
-
-        if (details.style.maxHeight) {
-          details.style.maxHeight = null;
+        if (details.style.maxHeight && details.style.maxHeight !== "0px") {
+          details.style.maxHeight = "0";
           details.style.opacity = "0";
         } else {
           details.style.maxHeight = details.scrollHeight + "px";
