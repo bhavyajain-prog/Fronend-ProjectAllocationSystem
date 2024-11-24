@@ -22,6 +22,29 @@ body {
   width: 55px;
 }
 
+/* Search Bar Styling */
+.search-bar-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#search-bar {
+  width: 90%;
+  max-width: 500px;
+  padding: 10px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1em;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#search-bar:focus {
+  outline: none;
+  border-color: #26cfc5;
+  box-shadow: 0 0 10px rgba(38, 207, 197, 0.5);
+}
+
 /* Page Container */
 .form-container {
   max-width: 800px;
@@ -105,6 +128,29 @@ h1 {
   background-color: #f9fafc;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* View Progress Button */
+.progress-btn {
+  display: inline-block;
+  margin: 15px 0;
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #26cfc5; /* Accent color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.progress-btn:hover {
+  background-color: #1aa8a1; /* Darker shade for hover effect */
+}
+
+.progress-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(38, 207, 197, 0.5);
 }
 
 /* Responsive Design */

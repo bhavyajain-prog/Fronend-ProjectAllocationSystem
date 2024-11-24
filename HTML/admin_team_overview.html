@@ -12,6 +12,16 @@
       <img src="../Images/logo.jpg" alt="SKIT Logo" class="logo" />
     </div>
 
+    <!-- Search Bar -->
+    <div class="search-bar-container">
+      <input
+        type="text"
+        id="search-bar"
+        placeholder="Search teams or technologies..."
+        oninput="filterTeams()"
+      />
+    </div>
+
     <!-- Team Overview Section -->
     <div class="form-container">
       <h1>Admin Team Overview</h1>
@@ -21,7 +31,7 @@
 
       <!-- Teams List -->
       <div id="teams-list">
-        <!-- Example Team -->
+        <!-- Example Team 1 -->
         <div class="team-row" onclick="toggleDetails(this)">
           <div class="team-info">
             <h4>AI Chatbot</h4>
@@ -43,10 +53,16 @@
                 A1
               </li>
             </ul>
+            <button
+              class="progress-btn"
+              onclick="viewProgress(event, 'AI Chatbot')"
+            >
+              View Progress
+            </button>
           </div>
         </div>
 
-        <!-- Another Example Team -->
+        <!-- Example Team 2 -->
         <div class="team-row" onclick="toggleDetails(this)">
           <div class="team-info">
             <h4>E-Commerce Website</h4>
@@ -67,8 +83,16 @@
                 Peter Parker - RTU Roll No: 55667788 - Role: UI/UX - Group: B2
               </li>
             </ul>
+            <button
+              class="progress-btn"
+              onclick="viewProgress(event, 'E-Commerce Website')"
+            >
+              View Progress
+            </button>
           </div>
         </div>
+
+        <!-- Add similar sections for other teams... -->
       </div>
     </div>
 
@@ -83,6 +107,32 @@
           details.style.maxHeight = details.scrollHeight + "px";
           details.style.opacity = "1";
         }
+      }
+      function filterTeams() {
+        const query = document
+          .getElementById("search-bar")
+          .value.toLowerCase()
+          .trim();
+        const teams = document.querySelectorAll(".team-row");
+
+        teams.forEach((team) => {
+          const teamName = team
+            .querySelector(".team-info h4")
+            .textContent.toLowerCase();
+          const technology = team
+            .querySelector(".team-info p")
+            .textContent.toLowerCase();
+
+          if (teamName.includes(query) || technology.includes(query)) {
+            team.style.display = "block";
+          } else {
+            team.style.display = "none";
+          }
+        });
+      }
+      function viewProgress(event, teamName) {
+        event.stopPropagation(); // Prevent triggering the toggleDetails function.
+        window.location.href = "form3.html"; // change the submit button to approve button when routed for admin
       }
     </script>
   </body>
