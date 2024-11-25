@@ -1,0 +1,120 @@
+/* Base Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f9fafc; /* Subtle light background */
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+/* Logo Section */
+.status {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.logo {
+  width: 55px;
+}
+
+/* Page Container */
+.form-container {
+  max-width: 800px;
+  background-color: #ffffff; /* White background */
+  padding: 30px;
+  border-radius: 10px;
+  margin: 30px auto;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Document Container */
+.document-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.document-row:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.document-info p {
+  margin: 5px 0;
+  font-size: 1em;
+  color: #555;
+}
+
+.document-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.approve-btn,
+.reject-btn {
+  padding: 10px 15px;
+  font-size: 0.9em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.approve-btn {
+  background-color: #26cfc5; /* Bright teal for approval */
+  transition: background-color 0.3s ease;
+}
+
+.approve-btn:hover {
+  background-color: #1ab8a8; /* Darker teal on hover */
+}
+
+.reject-btn {
+  background-color: #e74c3c; /* Red for rejection */
+  transition: background-color 0.3s ease;
+}
+
+.reject-btn:hover {
+  background-color: #c0392b; /* Darker red on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 20px;
+    margin: 20px auto;
+  }
+
+  .document-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .document-actions {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 95%;
+    padding: 15px;
+  }
+}
